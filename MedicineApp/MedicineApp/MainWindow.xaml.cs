@@ -115,5 +115,15 @@ namespace MedicineApp
                 };
             dataGrid.ItemsSource = queriedItems;
         }
+
+        private void print_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDialog=new PrintDialog();
+
+            if (printDialog.ShowDialog().GetValueOrDefault())
+            {
+                printDialog.PrintVisual(dataGrid, "Печать таблицы");
+            }
+        }
     }
 }

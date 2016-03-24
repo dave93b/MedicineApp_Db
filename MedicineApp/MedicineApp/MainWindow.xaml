@@ -18,7 +18,7 @@
             <MenuItem Header="Производители" Name="manufacturer" Click="manufacturer_Click"></MenuItem>
             <MenuItem Header="Товары" Name="medicines" Click="medicines_Click"></MenuItem>
             <MenuItem Header="Запрос" Name="query" Click="query_Click"></MenuItem>
-            <MenuItem Header="Печать" Name="print"></MenuItem>
+            <MenuItem Header="Печать" Name="print" Click="print_Click"></MenuItem>
             <MenuItem Header="Помощь">
                 <MenuItem Header="Справка" Command="Help" Name="help"></MenuItem>
                 <MenuItem Header="Об авторе" Name="about" Click="about_Click"></MenuItem>
