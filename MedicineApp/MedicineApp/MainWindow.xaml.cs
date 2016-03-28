@@ -47,23 +47,24 @@ namespace MedicineApp
 
         private void medicines_Click(object sender, RoutedEventArgs e)
         {
-            var items = from medicine in context.Medicines.ToList()
+            var items = from supply in context.Supplies.ToList()
+                        join medicine in context.Medicines.ToList() on supply.MedicineId equals medicine.MedicineId
                 join medicineUnits in context.MedicineUnits.ToList() on medicine.MedicineUnitId equals
                     medicineUnits.MedicineUnitId
                 join manufacturer in context.Manufacturers on medicine.ManufacturerId equals manufacturer.ManufacturerId
                 join form in context.MedicineForms on medicine.MedicineFormId equals form.MedicineFormId
-                join pharmacy in context.Pharmacies on medicine.PharmacyId equals pharmacy.PharmacyId
+                join pharmacy in context.Pharmacies on supply.PharmacyId equals pharmacy.PharmacyId
                 select new
                 {
                     НазваниеЛекарства = medicine.MedicineName,
                     Форма = form.MedicineFormName,
                     Производитель = manufacturer.ManufacturerName,
                     Аптека = pharmacy.PharmacyName,
-                    Количество = medicine.Quantity,
+                    Количество = supply.Quantity,
                     Вес = medicine.Weight + medicineUnits.MedicineUnitName,
                     Цена = medicine.Price + " грн",
-                    ДатаПоставки = medicine.DeliveryDate.ToShortDateString(),
-                    НомерНакладной = medicine.InvoiceNumber
+                    ДатаПоставки = supply.DeliveryDate.ToShortDateString(),
+                    НомерНакладной = supply.InvoiceNumber
                 };
             dataGrid.ItemsSource = items;
         }

@@ -14,21 +14,24 @@ namespace MedicineApp
     
     public partial class Medicine
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Medicine()
+        {
+            this.Supplies = new HashSet<Supply>();
+        }
+    
         public int MedicineId { get; set; }
         public string MedicineName { get; set; }
         public int MedicineFormId { get; set; }
-        public int Quantity { get; set; }
         public Nullable<decimal> Weight { get; set; }
         public int MedicineUnitId { get; set; }
         public int ManufacturerId { get; set; }
         public decimal Price { get; set; }
-        public int PharmacyId { get; set; }
-        public System.DateTime DeliveryDate { get; set; }
-        public string InvoiceNumber { get; set; }
     
         public virtual Manufacturer Manufacturer { get; set; }
         public virtual MedicineForm MedicineForm { get; set; }
         public virtual MedicineUnit MedicineUnit { get; set; }
-        public virtual Pharmacy Pharmacy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Supply> Supplies { get; set; }
     }
 }

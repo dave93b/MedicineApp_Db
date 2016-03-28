@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicineApp"
         mc:Ignorable="d"
-        Title="MainWindow" FontSize="14" Loaded="Window_Loaded" WindowState="Maximized">
+        Title="Информационная система 'Аптеки'" FontSize="14" Loaded="Window_Loaded" WindowState="Maximized">
     <Window.CommandBindings>
         <CommandBinding Command="Help" Executed="CommandBinding_Executed"/>
     </Window.CommandBindings>

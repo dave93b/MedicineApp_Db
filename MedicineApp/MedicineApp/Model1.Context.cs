@@ -30,6 +30,6 @@ namespace MedicineApp
         public virtual DbSet<MedicineForm> MedicineForms { get; set; }
         public virtual DbSet<MedicineUnit> MedicineUnits { get; set; }
         public virtual DbSet<Pharmacy> Pharmacies { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Supply> Supplies { get; set; }
     }
 }

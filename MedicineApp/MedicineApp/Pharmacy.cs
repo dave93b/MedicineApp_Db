@@ -17,7 +17,7 @@ namespace MedicineApp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pharmacy()
         {
-            this.Medicines = new HashSet<Medicine>();
+            this.Supplies = new HashSet<Supply>();
         }
     
         public int PharmacyId { get; set; }
@@ -27,6 +27,6 @@ namespace MedicineApp
         public string PharmacyHouseNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Medicine> Medicines { get; set; }
+        public virtual ICollection<Supply> Supplies { get; set; }
     }
 }

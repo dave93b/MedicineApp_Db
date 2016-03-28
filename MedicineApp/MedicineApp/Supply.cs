@@ -12,12 +12,16 @@ namespace MedicineApp
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Supply
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int SupplyId { get; set; }
+        public int Quantity { get; set; }
+        public int PharmacyId { get; set; }
+        public int MedicineId { get; set; }
+        public System.DateTime DeliveryDate { get; set; }
+        public string InvoiceNumber { get; set; }
+    
+        public virtual Medicine Medicine { get; set; }
+        public virtual Pharmacy Pharmacy { get; set; }
     }
 }
