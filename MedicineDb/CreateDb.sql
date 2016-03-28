@@ -68,14 +68,10 @@ Create table Medicine
 	[MedicineId] int identity(1,1) NOT NULL,
 	[MedicineName] NVARCHAR (max) NOT NULL,
 	[MedicineFormId] int not null,
-	[Quantity] int not null,
 	[Weight] decimal(5,2) null,
 	[MedicineUnitId] int not null,
 	[ManufacturerId] int not null,
-	[Price] decimal(5,2) NOT NULL,
-	[PharmacyId] int not null,
-	[DeliveryDate] date not null,
-	[InvoiceNumber] NVARCHAR (10) NOT NULL
+	[Price] decimal(5,2) NOT NULL
 )
 GO
 
@@ -102,8 +98,31 @@ FK_Medicine_ManufacturerId FOREIGN KEY(ManufacturerId)
 REFERENCES Manufacturer(ManufacturerId)
 GO
 
-ALTER TABLE Medicine
+
+Create table Supply
+(
+	[SupplyId] int identity(1,1) NOT NULL,
+	[Quantity] int not null,
+	[PharmacyId] int not null,
+	[MedicineId] int not null,
+	[DeliveryDate] date not null,
+	[InvoiceNumber] NVARCHAR (10) NOT NULL
+)
+GO
+
+ALTER TABLE Supply
 add constraint 
-FK_Medicine_PharmacyId FOREIGN KEY(PharmacyId)
+PK_Supply_SupplyId PRIMARY KEY(SupplyId)
+GO
+
+ALTER TABLE Supply
+add constraint 
+FK_Supply_PharmacyId FOREIGN KEY(PharmacyId)
 REFERENCES Pharmacy(PharmacyId)
+GO
+
+ALTER TABLE Supply
+add constraint 
+FK_Supply_MedicineId FOREIGN KEY(MedicineId)
+REFERENCES Medicine(MedicineId)
 GO
